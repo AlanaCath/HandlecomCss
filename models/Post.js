@@ -1,16 +1,23 @@
 const db = require('./db')
 
-const Post = db.sequelize.define('postagens', {
+const Post = db.sequelize.define('cadastro', {
 
-    titulo: {
+    Nome: {
         type: db.Sequelize.STRING
     },
-    conteudo: {
+    Email: {
         type: db.Sequelize.TEXT
-    }
+    },
 
+    Senha: {
+        type: db.Sequelize.STRING
+
+    },
+    Data: {
+    type: db.Sequelize.STRING(8)
+ }
 })
 
-//Post.sync({force: true}) 
+////Post.sync({force: true}) 
 
 module.exports = Post 

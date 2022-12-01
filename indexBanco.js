@@ -21,8 +21,9 @@ app.get('/cad', function (req, res) {
 
 app.post('/add', function (req, res) {
     Post.create({
-        title: req.body.titulo,
-        conteudo: req.body.conteudo
+        Nome: req.body.Nome,
+        Email: req.body.Email,
+        Senha: req.body.Senha
     }).then(function () {
         res.redirect('/')
     }).catch(function (error) {
