@@ -1,20 +1,36 @@
 <div class="container">
-<form action="/add" method="Post">
+<form action='/add' method="post" id="form-cadastro">
 <p>Nome</p>
 <input type="text" name="Nome">
 <p>Email</p>
 <input type="text" name="Email">
 <p>Senha</p>
 <input type="password" name="Senha">
-
-
+<p>Data</p>
+<input type="date" name="Data" id="Data">
 
 <br><br>
-<button type="Enviar">Cadastrar</button>
 </form>
+<button id="btn-cadastro">Cadastrar</button>
+
 </div>
+<p id="data-chosen" name="dataChosen"></p>
+<script>
+    var button = document.getElementById('btn-cadastro');
+    button.addEventListener('click', clicar);
+    function clicar() {
+        var data = document.querySelector('#Data').valueAsDate;
+        var dia = data.getUTCDate();
+        var mes = data.getUTCMonth() +1;
+        var ano = data.getUTCFullYear();
+        var dataFull = dia + '/' + mes + '/' + ano;
+        document.getElementById('data-chosen').innerHTML=`${dataFull}`;
+        document.getElementById('form-cadastro').method='Post';
+        document.getElementById('form-cadastro').action='/add';
+        document.getElementById('form-cadastro').submit();
+    }
 
-
+</script>
 
 <style type="text/css">
 .container {
@@ -42,20 +58,15 @@ form {
     border-radius: 10px;
 }
 
-.Data {
-    position: center;
-  }
-
 button {
     border-radius: 15px;
     text-transform: uppercase;
     position: center;
-    margin-left: 18%;
+    margin-left: 15%;
 
 }
 
 </style>
-
 
 
 
