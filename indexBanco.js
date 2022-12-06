@@ -20,13 +20,15 @@ app.get('/cad', function (req, res) {
 })
 
 app.post('/add', function (req, res) {
+    var data = req.body.Data
     Post.create({
         Nome: req.body.Nome,
         Email: req.body.Email,
-        Senha: req.body.Senha
+        Senha: req.body.Senha,
+    
     }).then(function () {
         res.redirect('/')
-    }).catch(function (error) {
+    }).catch(function (erro) {
         res.send("Houve um erro: " + erro)
     })
 
